@@ -106,7 +106,25 @@ function App() {
   }
 
   return (
-    <>
+    <div
+      style={{
+        backgroundImage: "url(/public/fundo.png)",
+        backgroundSize: "cover",
+      }}
+    >
+      <h1
+        style={{
+          fontFamily: "Permanent Marker",
+          backgroundColor: "white",
+          color: "pink",
+          padding: 10,
+          textAlign: "center",
+        }}
+      >
+        GameInto: Aplicativo responsável por criar listagens de jogos
+      </h1>
+      <br />
+      <br />
       <Container
         className="
         d-flex
@@ -129,7 +147,7 @@ function App() {
         </Button>
         <Table striped bordered hover>
           <thead style={{backgroundColor: 'pink'}}>
-            <tr>
+            <tr style={{ fontFamily: "PT Sans Narrow", color: "grey" }}>
               <th>Titulo</th>
               <th>Descrição</th>
               <th>Gênero</th>
@@ -147,7 +165,10 @@ function App() {
                 <td>{cont.empresa}</td>
                 <td>{cont.lancamento}</td>
                 <td>
-                  <Button onClick={() => deleteContent(cont.id)} variant='danger'>
+                  <Button onClick={() => deleteContent(cont.id)} variant="" style={{
+                        backgroundColor: "grey",
+                        color: "white",
+                      }} >
                     Excluir
                   </Button>
                   <Button
@@ -155,8 +176,12 @@ function App() {
                       handleShowUpdateModal()
                       setSelectedContent(cont)
                     }}
-                    variant='warning'
+                    variant=''
                     className='m-1'
+                    style={{
+                      backgroundColor: "pink",
+                        color: "grey",
+                    }}
                   >
                     Atualizar
                   </Button>
@@ -171,7 +196,7 @@ function App() {
       {selectedContent && (
         <UpdateContentModal isModalOpen={isUpdateModalOpen} handleClose={handleCloseUpdateModal} updateContent={updateContent} content={selectedContent} />
       )}
-    </>
+    </div>
   )
 }
 
